@@ -16,7 +16,7 @@ The dataset is a csv file that contains a summary of some values from the origin
 
 As we are working with different countries, the first idea was to use a choropleth map but that allows us to encode only position and one variable on the color and it can't show correlations. We opted for a scatter plot, where we could use position but also area and color to encode more variables. Also, it's a suitable plot to show correlations. 
 
-![alt text](/pisa2012/captures/image01.jpg "Choropleth Map")
+![alt text](/captures/image01.jpg "Choropleth Map")
 
 The idea was quite complex, so I decided to use D3.js but, as it is quite complex, I wanted to choose an example of code that would be similar to what I wanted to do. I found this excellent work by Peter Cook:
 
