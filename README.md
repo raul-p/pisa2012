@@ -26,7 +26,7 @@ http://prcweb.co.uk/lab/what-makes-us-happy/
 
 My first approach was to use that plot with my dataset, adding the 3 tests scores and a couple of variables, just to see how it looked like:
 
-![alt text](/pisa2012/captures/image02.png "Version 1")
+![alt text](/captures/image02.png "Version 1")
 http://raul-p.github.io/pisa2012/v1/
 
 ##### Version 2
@@ -35,14 +35,14 @@ I had the chance to show the plot to professor Alberto Cairo from University of 
 
 According to other people's feedback, it was hard to find an specific country if it's small, so I added a countries list and a black stroke in the circles when the user place the mouse over them.
 
-![alt text](/pisa2012/captures/image03.png "Version 2")
+![alt text](/captures/image03.png "Version 2")
 http://raul-p.github.io/pisa2012/v2/
 
 ##### Version 3
 
 According to another person's feedback, she didn't know that PISA was so she couldn't understand what was the plot about. So I decided to add an explanation and legends. 
 
-![alt text](/pisa2012/captures/image04.png "Version 3")
+![alt text](/captures/image04.png "Version 3")
 
 http://raul-p.github.io/pisa2012/v3/
 
@@ -50,7 +50,7 @@ http://raul-p.github.io/pisa2012/v3/
 
 The problem is that there were too many elements and the plot was hard to see in computers with small screen resolutions or in tablets. So I tried removing the countries list. But some users told that this made impossible to select some countries.
 
-![alt text](/pisa2012/captures/image05.png "Version 4")
+![alt text](/captures/image05.png "Version 4")
 
 http://raul-p.github.io/pisa2012/v4/
 
@@ -66,7 +66,7 @@ I also changed the way the countries appear when the page is loaded: Now they ap
 
 The elements were relocated so now it fits horizontally even in an old iPad.
 
-![alt text](/pisa2012/captures/image06.png "Version 5")
+![alt text](/captures/image06.png "Version 5")
 
 http://raul-p.github.io/pisa2012/v5/
 
@@ -74,7 +74,7 @@ http://raul-p.github.io/pisa2012/v5/
 
 The last changes consisted on giving the option to the user to click on a country to select it and track it and to click again to unselect, as well as minor changes in the text.
 
-![alt text](/pisa2012/captures/image07.png "Final Version")
+![alt text](/captures/image07.png "Final Version")
 
 http://raul-p.github.io/pisa2012/
 
