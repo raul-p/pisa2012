@@ -247,8 +247,7 @@ d3.csv('data/pisa.csv', function(data) {
 	if( menuOption == 5) {
 	  d3.select("#menu")
 		.style('opacity', 0)
-		.style('transition', 'opacity 1s linear');
-		
+		.style('transition', 'opacity 1s linear');		
 		
 	xAxis = 'Play Chess';
 	yAxis = 'Maths Score';

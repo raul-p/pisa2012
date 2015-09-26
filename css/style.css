@@ -67,8 +67,9 @@ body {
   top: 160px;
   left: 5px;
   width: 120px;
-  visibility:hidden;
-}
+  opacity:0;
+  transition:opacity 1s linear;
+} 
 
 
 #about {
