@@ -70,13 +70,21 @@ The elements were relocated so now it fits horizontally even in an old iPad.
 
 http://raul-p.github.io/pisa2012/v5/
 
+##### Version 6
+
+After some comments, I decided to make a more explanatory graph by changing the navigation and guiding the user through 5 different visualizations than explain the data. After those 5 plots, the user can explore some variables by himself. 
+
+![alt text](/captures/image07.png "Version 6")
+
+http://raul-p.github.io/pisa2012/
+
 #### Final Version
 
 The last changes consisted on giving the option to the user to click on a country to select it and track it and to click again to unselect, as well as minor changes in the text.
 
-![alt text](/captures/image07.png "Final Version")
+![alt text](/captures/image08.png "Final Version")
 
-http://raul-p.github.io/pisa2012/
+http://raul-p.github.io/pisa/
 
 
 ###Feedback
