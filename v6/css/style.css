@@ -29,33 +29,9 @@ body {
   line-height: 100%;
 }
 
-#navigation {
+#about {
   position: absolute;
-  top: 70px;
-  left: 210px;
-  width: 740px;
-}
-
-#navigation #prev {
-	float: left;
-	width: 30px;
-	height: 30px;
-	background-image:url("../images/prev_light.png");
-  
-}
-
-#navigation #next {
-	float: left;
-	width: 30px;
-	height: 30px;
-	margin-left:10px;
-	background-image:url("../images/next.png"); 
-}
-
-
-#explanation {
-  position: absolute;
-  top: 110px;
+  top: 55px;
   left: 210px;
   width: 740px;
   font-size: 12px;
@@ -64,48 +40,21 @@ body {
 
 #menu {
   position: absolute;
-  top: 160px;
+  top: 260px;
   left: 5px;
   width: 120px;
-  visibility:hidden;
 }
 
 
-#about {
-  position: absolute;
-  top: 520px;
-  left: 5px;
-  width: 150px;
-  font-size:9px
-}
-  
-  
-#explanationTitle {
-  position: absolute;
-  top: 55px;
-  left: 300px;
-  font-size:20px; 
 
-}
 
 #countries-dropdown {
   position: absolute;
-  top: 70px;
-  left: 700px; 
+  top: 170px;
+  left: 5px;
+  width: 150px;
 
 }
-
-#country_label {
-  float:left;
-}
-
-
-#countries-list {
-  left: 10px;
-  margin-left:130px;
-  margin-top: 9px;
-}
-
 
 
 #tooltip {
@@ -171,7 +120,10 @@ li.selected {
   font-weight: bold;
 }
 
-
+#countries li {
+  font-size: 9px;
+  padding-bottom: 0px;
+}
 
 select {
     padding:5px;
@@ -193,31 +145,7 @@ select {
     cursor:pointer;
 }
 
-
-
-
-/* SVG styling */
-path {
-	fill: #CED8B6;
-}
-
-line {
-	stroke: #555;
-	stroke-width: 2px;
-}
-
-line#bestfit {
-	stroke: #666;
-	stroke-width: 2 px;
-}
-
-#xAxis path, #yAxis path, #xAxis line, #yAxis line {
-	stroke: #ccc;
-	fill: none;
-	shape-rendering: crispEdges;
-}
-
-text {
-	font-size: 12px;
-	fill: #888;
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
 }

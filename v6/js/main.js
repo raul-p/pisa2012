@@ -1,4 +1,4 @@
-  // Parse data as float but countries an
+  // HELPERS
 function parseData(d) {
   var keys = _.keys(d[0]);
   return _.map(d, function(d) {
@@ -16,10 +16,9 @@ function parseData(d) {
     return o;
   });
 }
-  
-  
-  // Find min and maxes (for the scales)
+
 function getBounds(d, paddingFactor) {
+  // Find min and maxes (for the scales)
   paddingFactor = typeof paddingFactor !== 'undefined' ? paddingFactor : 1;
 
   var keys = _.keys(d[0]), b = {};
@@ -39,8 +38,6 @@ function getBounds(d, paddingFactor) {
   return b;
 }
 
-
- // Get the correlation between x and y
 function getCorrelation(xArray, yArray) {
   function sum(m, v) {return m + v;}
   function sumSquares(m, v) {return m + v * v;}
@@ -132,7 +129,7 @@ d3.csv('data/pisa.csv', function(data) {
   var data = parseData(data);
   var bounds = getBounds(data, 1);
 
-  // Create svg
+  // Create svg and stuff
   var svg = d3.select("#chart")
     .append("svg")
     .attr("width", 880)
@@ -142,145 +139,8 @@ d3.csv('data/pisa.csv', function(data) {
   svg.append('g')
     .classed('chart', true)
     .attr('transform', 'translate(80, -160)');
-  
-  
-   // Titles for the navigation menu
-   var explanationTitle = [
-   "1. What is PISA?",
-   "2. Correlation among scores.",
-   "3. Having a quiet place to study.",
-   "4. Having internet at home.",
-   "5. Having many books.",
-   "6. Playing chess.",
-   "7. Explore some variables."
-   ];
-   
-   
-   // Explanations for the navigation menu
-  var explanationText = [
-  "PISA is a survey of students' skills and knowledge as they approach the end of compulsory education. It assessed the competencies of 15-year-olds in reading, mathematics and science in 65 countries and economies.",
-  "The results in maths, reading and science are higly correlated. For example, this plot shows the correlation betweens maths and reading scores. Countries with good reading scores also have good maths scores.",
-  "One of the variables that shows a clearer correlation with the results in the survey is having a quiet place to study.", 
-  "Having internet at home also seems to be very correlated with all results in the test. Vietnam is an exception, as it has very good results with a very low internet penetration.",
-  "Having a large number of books is also correlated with good results in the test. ",
-  "However, it is surprising to see how factors like playing chess show a negative correlation with results.", 
-  "This interactive graph allows you to observe the conections between mean PISA scores per country and some variables. Select variables to compare them and see correlations. Select or click any country to follow it.",
-   ];
-   
 
-   
-					  
-  // Option selected in the navigation menu
-	var menuOption = 0
-
-  // Control the prev button		  
-  d3.select("#navigation #prev ").on("click", function() {
-
-	if( menuOption > 0) {
-        menuOption -= 1;
-	}
-	if( menuOption == 0) {
-	  d3.select("#navigation #prev")
-		.style('background-image', 'url("images/prev_light.png")')
-	}	
-	if( menuOption == 5 ) {
-	  d3.select("#navigation #next")
-		.style('background-image', 'url("images/next.png")')
-	}
-	navigation()			
-	
-	});
-	
-  // Control the next button
-  d3.select("#navigation #next ").on("click", function() {
-          
-	if( menuOption < 6) {		
-        menuOption += 1;
-		navigation()
-	}
-	if( menuOption == 6) {
-	  d3.select("#navigation #next")
-		.style('background-image', 'url("images/next_light.png")')
-	}	
-	if( menuOption == 1) {
-	  d3.select("#navigation #prev")
-		.style('background-image', 'url("images/prev.png")')
-	}		
-
-		
-	});
-	
-	
-  // Change texts and axis for every step in navigation		   	
-  function navigation(d) {
-    d3.select("#explanation p")
-	  .text(explanationText[menuOption]);
-	  
-	d3.select("#explanationTitle p")
-	  .text(explanationTitle[menuOption]);  
-	  
-	if( menuOption == 0) {
-	xAxis = 'Longitude';
-	yAxis = 'Latitude';
-	}	  
-
-	if( menuOption == 1) {
-	xAxis = 'Reading Score';
-	yAxis = 'Maths Score';
-	}		  
-	
-	if( menuOption == 2) {
-	xAxis = 'Quiet Place to Study';
-	yAxis = 'Maths Score';
-	}		
-	
-	if( menuOption == 3) {
-	xAxis = 'Internet at Home';
-	yAxis = 'Science Score';
-	}		  
-	  
-	if( menuOption == 4) {
-	xAxis = 'Books';
-	yAxis = 'Reading Score';
-	}		  
-	  	  
-	if( menuOption == 5) {
-	  d3.select("#menu")
-		.style('visibility', 'hidden')
-		
-		
-	xAxis = 'Play Chess';
-	yAxis = 'Maths Score';
-	
-	
-	}
-
-	if( menuOption == 6) {
-	  d3.select("#menu")
-		.style('visibility', 'visible')
-		
-	xAxis = 'Homework Hours';
-	yAxis = 'Maths Score';
-	updateMenus();
-
-	}
-	
-	
-    updateChart();
-	
-
-  }
-
-
-
-
-
-
-
-	
-  // Build x axis menus
-  
-  
+  // Build axis menus
   d3.select('#x-axis-menu')
     .selectAll('li')
     .data(xAxisOptions)
@@ -298,7 +158,6 @@ d3.csv('data/pisa.csv', function(data) {
       updateMenus();
     });
 
-  // Build y axis menus
    d3.select('#y-axis-menu')
      .selectAll('li')
      .data(yAxisOptions)
@@ -317,8 +176,8 @@ d3.csv('data/pisa.csv', function(data) {
      });
 	 
 	 
-   // Create countries dropdown  
-  var dropDown = d3.select("#countries-list")
+   // Countries dropdown  
+  var dropDown = d3.select("#countries-list2")
   				   .append("select")
                    .attr("name", "country-list");
 				   
@@ -332,9 +191,7 @@ d3.csv('data/pisa.csv', function(data) {
          .attr("value", function (d) { return d.Order; });
 	   
   dropDown.on("change", menuChanged );
-
-
-   // Change the stroke of the selected country  
+  
   function menuChanged(d) {
 	  
   d3.select('svg g.chart')
@@ -377,7 +234,7 @@ d3.csv('data/pisa.csv', function(data) {
     .text('Maths Score');
 
 	
-  // Create Legend 1
+  // Legend 1
   
 	var linearSize = d3.scale.linear().domain([0.5,  300]).range([1.6, 39]);
 	
@@ -406,7 +263,7 @@ d3.csv('data/pisa.csv', function(data) {
     .text('Country Population');		 
   
   
-  // Create Legend 2
+  // Legend 2
 
 	var linear = d3.scale.category10()
 	  .domain(["AMERICA", "ASIA", "EUROPE", "OCEANIA", "AF & ME"])
@@ -443,7 +300,6 @@ d3.csv('data/pisa.csv', function(data) {
     .data(data)
     .enter()
     .append('circle')
-	 // The id is the country name without spaces
 	.attr("id", function (d) { return d.Country.replace(/ /g,''); })
     .attr('cx', function(d) {
       return isNaN(d[xAxis]) ? d3.select(this).attr('cx') : xScale(d[xAxis]);
@@ -451,14 +307,15 @@ d3.csv('data/pisa.csv', function(data) {
     .attr('cy', function(d) {
       return isNaN(d[yAxis]) ? d3.select(this).attr('cy') : yScale(d[yAxis]);
     })
-    // Fill color acording to the area of the world
-	.attr('fill', function(d, i) {return pointColour(d.aColor);})
+    .attr('fill', function(d, i) {return pointColour(d.aColor);})
 	.style("fill-opacity", 0.8)
     .style('cursor', 'pointer')
 
 
-  // Mouse over. Change stroke if it's not selected
-    .on('mouseenter', function(d) {	  		
+  // Mouse over. Change stroke and show tooltip
+    .on('mouseenter', function(d) {
+	
+  		
 	if( d3.select(this).attr('stroke-width')  != 60 )
         var stroke_width = 2;
 	else
@@ -470,9 +327,10 @@ d3.csv('data/pisa.csv', function(data) {
         .attr("stroke-width", stroke_width);
 	
 	var mouse_over_circle = true;	
+
     })
 
-  // Mouse out. Change stroke back to original
+  // Mouse out
   
     .on('mouseout', function(d) {
 		
@@ -493,7 +351,7 @@ d3.csv('data/pisa.csv', function(data) {
 	
 	})
 	
-	// On click, select ot unselect
+
     .on('click', function(d) {
 		
 	if(d3.select(this).attr('stroke-width')  == 60) {
@@ -548,7 +406,7 @@ d3.csv('data/pisa.csv', function(data) {
 	});
 	
 	
-  // Update charts and menus	
+	
   updateChart(true);
   updateMenus();
 
@@ -566,13 +424,10 @@ d3.csv('data/pisa.csv', function(data) {
     .call(makeYAxis);
 
 
-  // Update chart elements when axis variables change
+  //// RENDERING FUNCTIONS
   function updateChart(init) {
-	 
-	// Update the scales first  
     updateScales();
 
-    // Move the circles
     d3.select('svg g.chart')
       .selectAll('circle')
       .transition()
@@ -585,7 +440,7 @@ d3.csv('data/pisa.csv', function(data) {
         return isNaN(d[yAxis]) ? d3.select(this).attr('cy') : yScale(d[yAxis]);
       })
       .attr('r', function(d) {
-	   // Area proportional to population
+//     return isNaN(d[xAxis]) || isNaN(d[yAxis]) ? 0 : 12;
 	   return 4*Math.sqrt(d.Population/3.14);
       });
 	
@@ -612,13 +467,14 @@ d3.csv('data/pisa.csv', function(data) {
     var x1 = xScale.domain()[0], y1 = c.m * x1 + c.b;
     var x2 = xScale.domain()[1], y2 = c.m * x2 + c.b;
 
-    // Fade in	
+    // Fade in
+	
 	 if( xAxis == 'Longitude' )
         var op = 0;
 	  else
 	    var op = 1;
 	  
-	 // Change the best fit line 
+	  
     d3.select('#bestfit')
       .style('opacity', 0)
       .attr({'x1': xScale(x1), 'y1': yScale(y1), 'x2': xScale(x2), 'y2': yScale(y2)})
@@ -627,18 +483,16 @@ d3.csv('data/pisa.csv', function(data) {
       .style('opacity', op);
   }
 
-  // Update the scales
   function updateScales() {
     xScale = d3.scale.linear()
-                    .domain([bounds[xAxis].min-10, bounds[xAxis].max+10])
-                    .range([10, 750]);
+                    .domain([bounds[xAxis].min, bounds[xAxis].max])
+                    .range([20, 740]);
 
     yScale = d3.scale.linear()
-                    .domain([bounds[yAxis].min-10, bounds[yAxis].max+10])
-                    .range([610, 220]);    
+                    .domain([bounds[yAxis].min, bounds[yAxis].max])
+                    .range([600, 220]);    
   }
 
-  // Plot X axis
   function makeXAxis(s) {
     s.call(d3.svg.axis()
       .scale(xScale)
@@ -647,7 +501,6 @@ d3.csv('data/pisa.csv', function(data) {
       .orient("bottom"));
   }
 
-  // Plot Y axis
   function makeYAxis(s) {
     s.call(d3.svg.axis()
       .scale(yScale)
@@ -655,9 +508,7 @@ d3.csv('data/pisa.csv', function(data) {
 	  .ticks(5)
       .orient("left"));
   }
-  
-  
-  // Update menus
+
   function updateMenus() {
     d3.select('#x-axis-menu')
       .selectAll('li')
