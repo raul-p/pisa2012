@@ -246,7 +246,8 @@ d3.csv('data/pisa.csv', function(data) {
 	  	  
 	if( menuOption == 5) {
 	  d3.select("#menu")
-		.style('visibility', 'hidden')
+		.style('opacity', 0)
+		.style('transition', 'opacity 1s linear');
 		
 		
 	xAxis = 'Play Chess';
@@ -257,7 +258,9 @@ d3.csv('data/pisa.csv', function(data) {
 
 	if( menuOption == 6) {
 	  d3.select("#menu")
-		.style('visibility', 'visible')
+		.style('display', 'block')
+		.style('opacity', '1');
+		
 		
 	xAxis = 'Homework Hours';
 	yAxis = 'Maths Score';
