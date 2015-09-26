@@ -151,8 +151,8 @@ d3.csv('data/pisa.csv', function(data) {
    "3. Having a quiet place to study.",
    "4. Having internet at home.",
    "5. Having many books.",
-   "6. Playing chess.",
-   "7. Explore some variables."
+   "6. Playing chess?",
+   "7. It's your turn to explore!"
    ];
    
    
