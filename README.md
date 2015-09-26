@@ -76,7 +76,7 @@ After some comments, I decided to make a more explanatory graph by changing the 
 
 ![alt text](/captures/image07.png "Version 6")
 
-http://raul-p.github.io/pisa2012/
+http://raul-p.github.io/pisa2012/v6/
 
 #### Final Version
 
@@ -84,7 +84,7 @@ The last changes consisted on giving the option to the user to click on a countr
 
 ![alt text](/captures/image08.png "Final Version")
 
-http://raul-p.github.io/pisa/
+http://raul-p.github.io/pisa2012/
 
 
 ###Feedback
@@ -110,7 +110,7 @@ After version 1:
   After version 5:
  >There is a problem with the country selection. When I select my country and then place the mouse over it to see the actual x and y values I loose the selection and I have to select another country and then select mine again. 
 
-After final version:
+After version 6:
 > The visualization is presented with high aesthetic sense. Many aspects are included and compared: countries, scores, features, size of the countries, mean value of score and percentage of students in different countries. 
 >
 > The chart shows the effect of some features (homework hour, quiet place to study...) on math score, science score and reading score of students in several countries. 
@@ -118,6 +118,9 @@ After final version:
 > I find very interesting to discover a country's respective study scores in comparision with other counterparts and how this position changes when we change the feature. 
 >
 > The data values are included clear and effective, the correlation between variables is well depicted.
+
+After final version:
+> Now the plot tells me a story. I like that it also offers the opportunity to explore the relations by yourself.
 
 ##### Subject 3
 
@@ -130,25 +133,28 @@ After version 3:
 After version 5:
 >I like the tooptil but it would be less confusing if it would follow the mouse, like in the NYT example.
 
+After final version:
+> It works like a charm now. And I like the way the new navigation explains the correlations. 
+
 ##### Person 4
 
 After version 5:
 > It's a little uncomfortable having to seek for Spain every time you change the axis. But considering that Europe is represented in green, and the size (which represents the number of inhabitants) of the circle, it can only be confused with Turkey, France or UK.
 
-After final version:
+After version 6:
 > I draw the conclusion that in almost all the graphics on the various issues raised, Spain is more or less on the "average".
 >
 > It's very interesting to see the relation between having a computer and internet with better results on the test!
 
 ##### Person 5
 
-After final version:
+After version 6:
 > Looks good. I see some difference between Asian countries and Latin American countries, if you plot "Have computers at home" vs. "Math score". The Asian countries are mostly on the higher side of math and science scores and Latin countries are mostly on the other side of the line.
 > The negative correlation of playing chess and programming computers with the results is very surprissing. 
 
 ##### Person 6
 
-After final version:
+After version 6:
 > I don't know about other countries but I know the reality of 15 years old Spanish kids and to me it's clear that they lie on that survey. 
 > Over 38% play chess?
 > More than 43% have more than 100 books?
