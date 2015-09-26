@@ -192,7 +192,7 @@ d3.csv('data/pisa.csv', function(data) {
 	});
 	
   // Control the next button
-  d3.select("#navigation #next ").on("click", function() {
+  d3.select("#navigation #next").on("click", function() {
           
 	if( menuOption < 6) {		
         menuOption += 1;
